@@ -100,3 +100,35 @@ class PhotoFavorite(View):
             path = urlparse(referer_url).path
             return HttpResponseRedirect(path)
 
+
+class PhotoLikeList(ListView):
+    model = Photo
+    template_name = 'photo/photo_list.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.warning(request, '로그인을 먼저하세요')
+            return HttpResponseRedirect('/')
+        return super(PhotoLikeList, self).dispatch(request, *args, **kwargs)
+
+    def get_queryset(self):
+        user = self.request.user
+        queryset = user.like_post.all()
+        return queryset
+
+
+class PhotoFavoriteList(ListView):
+    model = Photo
+    template_name = 'photo/photo_list.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            messages.warning(request, '로그인을 먼저하세요')
+            return HttpResponseRedirect('/')
+        return super(PhotoFavoriteList, self).dispatch(request, *args, **kwargs)
+
+    def get_queryset(self):
+        user = self.request.user
+        queryset = user.favorite_post.all()
+        return queryset
+
