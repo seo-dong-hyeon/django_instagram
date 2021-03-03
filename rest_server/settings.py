@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'photo',
     'drf_yasg',
     'accounts',
+    'disqus',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +141,6 @@ SWAGGER_SETTINGS = {
 LOGIN_URL = 'rest_framework:login'
 LOGOUT_URL = 'rest_framework:logout'
 LOGIN_REDIRECT_URL ='/'
+
+DISQUS_WEBSITE_SHORTNAME = 'myinstagram'
+SITE_ID = 1
