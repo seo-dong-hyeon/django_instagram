@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'photo',
     'drf_yasg',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,4 @@ SWAGGER_SETTINGS = {
 }
 LOGIN_URL = 'rest_framework:login'
 LOGOUT_URL = 'rest_framework:logout'
+LOGIN_REDIRECT_URL ='/'
