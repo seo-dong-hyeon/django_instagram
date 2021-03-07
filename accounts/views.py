@@ -14,10 +14,9 @@ def signup(request):
             return render(request, 'accounts/sign_up_complete.html')
     else:
         signup_form = SignUpForm()
-    return render(request, 'accounts/sign_up.html', {'form':signup_form.as_p})
+    return render(request, 'accounts/sign_up.html', {'form': signup_form.as_p})
 
-
-'''
+''' 
 def signup(request):
     if request.method == 'POST':
         username = request.POST.get('username')
